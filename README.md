@@ -1,4 +1,4 @@
-<h1>Holberton Low Level Programming, Project Home</h1>
+<h1> Low Level Programming</h1>
 
 ### [0x00-hello_world](./0x00-hello_world)
 
