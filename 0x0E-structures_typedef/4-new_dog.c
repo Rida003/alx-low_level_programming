@@ -1,22 +1,18 @@
 #include "dog.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
-*_strlen - returns length of
-*a string
-*@str: string to be counted
-*Return: returns length of string
-*/
-int _strlen(char *str)
+ * _strcopy - copy read only data to mutatable.
+ * @dst: pointer to copy char to.
+ * @src: read only data.
+ */
+void _strcopy(char *dst, char *src)
 {
-int len = 0;
-while (str)
-len++;
+	int i;
 
-return (len);
+	for (i = 0; src[i]; i++)
+		dst[i] = src[i];
+	dst[i] = '\0';
 }
-
 
 /**
 *_strcopy - copy string pointed by src
@@ -25,57 +21,39 @@ return (len);
 *@src: buffer storing string to copy
 *Return:returns copied string
 */
-char *_strcopy(char *dest, char *src)
-{
-int index = 0;
 
-for (; src[index] ; index++)
-dest[index] = src[index];
-
-dest[index] = '\0';
-return (dest);
-}
-
-
-
-
-/**
-*new_dog - creates a new dog
-*@name: name of new dog
-*@age: age of new dog
-*@owner: owner of new dog
-*Return: returns NULL in case
-*of failure
-*/
 dog_t *new_dog(char *name, float age, char *owner)
 {
-dog_t *doggo;
+	dog_t *d;
+	int a, b;
 
-if (name == NULL || age < 0 || owner == NULL)
-return (NULL);
+	for (a = 0; name[a]; a++)
+		;
+	for (b = 0; owner[b]; b++)
+		;
 
-doggo = malloc(sizeof(dog_t));
-if (doggo == NULL)
-return (NULL);
+	d = malloc(sizeof(dog_t));
+	if (!d)
+		return (NULL);
 
-doggo->name = malloc(sizeof(char) * (_strlen(name) + 1));
-if (doggo->name == NULL)
-{
-free(doggo);
-return (NULL);
+	d->name = malloc(a + 1);
+	if (!d->name)
+	{
+		free(d);
+		return (NULL);
+	}
+
+	d->owner = malloc(b + 1);
+	if (!d->owner)
+	{
+		free(d->name);
+		free(d);
+		return (NULL);
+	}
+
+	_strcopy(d->name, name);
+	_strcopy(d->owner, owner);
+	d->age = age;
+	return (d);
 }
 
-doggo->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
-if (doggo->owner == NULL)
-{
-free(doggo->name);
-free(doggo);
-return (NULL);
-}
-
-doggo->name = _strcopy(doggo->name, name);
-doggo->age = age;
-doggo->owner = _strcopy(doggo->owner, owner);
-
-return (doggo);
-}
