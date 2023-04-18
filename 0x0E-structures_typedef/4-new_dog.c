@@ -4,58 +4,25 @@
 #include <stdlib.h>
 
 /**
- * _strcopy - copy read only data to mutatable.
- * @dst: pointer to copy char to.
- * @src: read only data.
+ * free_dog - frees memory allocated for a struct dog
+ * @d: struct dog to free
  */
-void _strcopy(char *dst, char *src)
-{
-	int i;
-
-	for (i = 0; src[i]; i++)
-		dst[i] = src[i];
-	dst[i] = '\0';
-}
-
-/**
-*_strcopy - copy string pointed by src
-*into dest variable
-*@dest:buffer storing string copy
-*@src: buffer storing string to copy
-*Return:returns copied string
-*/
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *d;
-	int a, b;
+	dog_t *my_dog;
 
-	for (a = 0; name[a]; a++)
-		;
-	for (b = 0; owner[b]; b++)
-		;
+	my_dog = malloc(sizeof(dog_t));
 
-	d = malloc(sizeof(dog_t));
-	if (!d)
-		return (NULL);
-
-	d->name = malloc(a + 1);
-	if (!d->name)
+	if (!my_dog)
 	{
-		free(d);
+		free(my_dog);
 		return (NULL);
 	}
 
-	d->owner = malloc(b + 1);
-	if (!d->owner)
-	{
-		free(d->name);
-		free(d);
-		return (NULL);
-	}
+	my_dog->name = name;
+	my_dog->age = age;
+	my_dog->owner = owner;
 
-	_strcopy(d->name, name);
-	_strcopy(d->owner, owner);
-	d->age = age;
-	return (d);
+	return (my_dog);
 }
