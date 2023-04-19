@@ -1,32 +1,61 @@
 #include "3-calc.h"
 
 /**
- * get_op_func - function pointer that selects the correct function to perform
- * the operation asked by the user
- * @s: the operator given by the user
+ * op_add - runs a addition calculation on a and b;
+ * @a: int value.
+ * @b: int value.
  *
- * Return: pointer to the function that corresponds to the
- * operator given as a parameter
+ * Return: Resault of math operation.
  */
-
-int (*get_op_func(char *s))(int, int)
+int op_add(int a, int b)
 {
-	op_t ops[] = {
-		{"+", op_add},
-		{"-", op_sub},
-		{"*", op_mul},
-		{"/", op_div},
-		{"%", op_mod},
-		{NULL, NULL}
-	};
-	int i;
+	return (a + b);
+}
 
-	i = 0;
-	while (ops[i].op)
-	{
-		if (strcmp(ops[i].op, s) == 0)
-			return (ops[i].f);
-		i++;
-	}
-	return (NULL);
+/**
+ * op_sub - runs a subtraction calculation on a and b;
+ * @a: int value.
+ * @b: int value.
+ *
+ * Return: Resault of math operation.
+ */
+int op_sub(int a, int b)
+{
+	return (a - b);
+}
+
+/**
+ * op_mul - runs a multiplication calculation on a and b;
+ * @a: int value.
+ * @b: int value.
+ *
+ * Return: Resault of math operation.
+ */
+int op_mul(int a, int b)
+{
+	return (a * b);
+}
+
+/**
+ * op_div - runs a division calculation on a and b;
+ * @a: int value.
+ * @b: int value.
+ *
+ * Return: Resault of math operation.
+ */
+int op_div(int a, int b)
+{
+	return (a / b);
+}
+
+/**
+ * op_mod - runs a moldules calculation on a and b;
+ * @a: int value.
+ * @b: int value.
+ *
+ * Return: Resault of math operation.
+ */
+int op_mod(int a, int b)
+{
+	return (a % b);
 }
