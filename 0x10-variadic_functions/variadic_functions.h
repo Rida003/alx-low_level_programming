@@ -5,7 +5,12 @@
 #include <unistd.h>
 #include <stdarg.h>
 
-
+/**
+ * struct print_ops - struct use to match the operator
+ * with correlating function
+ * @op: string represention of the operator.
+ * @f: function pointer for the operation to be used.
+ */
 typedef struct print_ops
 {
 	char *op;
