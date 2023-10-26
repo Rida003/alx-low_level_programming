@@ -1,34 +1,52 @@
-#include "main.h"
+#include "holberton.h"
 
-int prime_number(int n, int i);
-
+int sqrt_rec_odd(int start, int n);
 /**
- *  * is_prime_number - fuction the check if a number is a prime.
- *   * @n: number to be tested.
+ *  * _sqrt_recursion - find the square root of a given number.
+ *   * @n: number to find the square root of.
  *    *
- *     * Return: 1 if a Prime else 0
-*/
-int is_prime_number(int n)
+ *     * Return: the sqrt as a Int.
+ *      */
+int _sqrt_recursion(int n)
 {
-		if (n <= 1)
-					return (0);
-			return (prime_number(n, n - 1));
+		int sqrt;
+
+			if (n < 0)
+						return (-1);
+				else if (n <= 1 && n >= 0)
+							return (n);
+
+					if (!(n % 2))
+							{
+										if (n / 2 == 2 || n == 2)
+														return (2);
+												sqrt = _sqrt_recursion(n / 2);
+														if (n / sqrt == sqrt)
+																		return (sqrt);
+																else if (sqrt > 1)
+																				return (sqrt * 2);
+																		return (-1);
+																			}
+						else
+								{
+											return (sqrt_rec_odd(n, n - 2));
+												}
 }
 
 /**
- *  * prime_number - help fuction function for is_prime_number.
- *   * @n: Original number to be tested.
- *    * @i: Original number to test with.
+ *  * sqrt_rec_odd - helper to deal with odd numbers and primes.
+ *   * @start: the odd or prime number to check for sqrt.
+ *    * @n: number to find the square root of.
  *     *
- *      * Return: 1 if a Prime else 0
+ *      * Return: the sqrt as a Int.
  *       */
-int prime_number(int n, int i)
+int sqrt_rec_odd(int start, int n)
 {
-	if (i == 1)
-	return (1);
-	else if (n % i == 0)
-	return (0);
-	else if (n % i != 0)
-	return (prime_number(n, i - 1));
-	return (0);
+		if (n < 0)
+					return (-1);
+			else if (start == n * n)
+						return (n);
+				else
+							return (sqrt_rec_odd(start, n - 2));
 }
+
