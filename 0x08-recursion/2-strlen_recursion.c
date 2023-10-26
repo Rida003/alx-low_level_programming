@@ -5,7 +5,7 @@
 *   * @s: string to measure.
 *    *
 *     *     * Return: Length of the string as INT.
-*      */
+*/
 int _strlen_recursion(char *s)
 {
 	if (*s)
