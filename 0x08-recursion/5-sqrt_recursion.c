@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "main.h"
 
 int sqrt_rec_odd(int start, int n);
 /**
