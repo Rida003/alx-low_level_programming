@@ -7,7 +7,7 @@ int prime_number(int n, int i);
  *   * @n: number to be tested.
  *    *
  *     * Return: 1 if a Prime else 0
- *      */
+*/
 int is_prime_number(int n)
 {
 		if (n <= 1)
