@@ -5,7 +5,7 @@
  *   * @s: string to print in reverse.
  *    *
  *     * Return: Nothing
- *      */
+*/
 void _print_rev_recursion(char *s)
 {
 	if (!*s)
