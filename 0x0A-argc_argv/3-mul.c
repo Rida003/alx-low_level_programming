@@ -7,7 +7,7 @@
  * @argv: string array for the arguments entered
  *
  * Return: 0 (Sucess) else 1 (Failure).
- */
+*/
 int main(int argc, char *argv[])
 {
 	int i, sum = 1;
@@ -23,3 +23,4 @@ int main(int argc, char *argv[])
 	printf("%d\n", sum);
 	return (0);
 }
+
