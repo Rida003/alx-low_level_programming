@@ -8,7 +8,7 @@
  * @argv: String that holds the passed Arguments.
  *
  * Return: 0 (Sucess) else 1 (Failure).
- */
+*/
 int main(int argc, char *argv[])
 {
 	int i, c, sum = 0;
@@ -35,3 +35,4 @@ int main(int argc, char *argv[])
 	printf("%d\n", sum);
 	return (0);
 }
+

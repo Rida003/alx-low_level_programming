@@ -10,7 +10,7 @@ int give_change(int money);
  * @argv: amount of money given in singles.
  *
  * Return: 0 (sucesss) , 1 (Failure)
- */
+*/
 int main(int argc, char *argv[])
 {
 	int money, change;
@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
  * @money: amount of money given in singles.
  *
  * Return: min amount of coins. (INT)
- */
+*/
 int give_change(int money)
 {
 	int one, two, five, ten, tf, sum;
@@ -74,3 +74,4 @@ int give_change(int money)
 	sum = tf + ten + five + two + one;
 	return (sum);
 }
+
