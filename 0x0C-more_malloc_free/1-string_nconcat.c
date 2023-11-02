@@ -1,4 +1,4 @@
-nclude <stdlib.h>
+#include <stdlib.h>
 #include "main.h"
 
 /**
@@ -7,7 +7,7 @@ nclude <stdlib.h>
  *    * @s2: string to copy from. 'NULL' will return as empty string.
  *     * @n: amount of s2 to copy.
  *      * Return: pointer to allocated memory.
- *       */
+*       */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 		char *str;
