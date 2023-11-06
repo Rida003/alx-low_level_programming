@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-/* EMOHAMEDD */
-
 /**
  *main - main point
  *Return: success
