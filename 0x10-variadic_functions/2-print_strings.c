@@ -1,55 +1,31 @@
 #include "variadic_functions.h"
 
 /**
- *print_all - printd string by \n
- *@format: list type
- *@...: arguments
- *Return: nothing
+ * print_strings - Prints strings passed to the function separed by separators
+ * @separator: A string that is used to separate strings
+ * @n: number of unnamed parameters
+ * Return: Always 0
  */
 
-void print_all(const char * const format, ...)
+void print_strings(const char *separator, const unsigned int n, ...)
 {
-	va_list ap;
-	int i = 0;
 	char *str;
-	char *separator = "";
+	unsigned int i;
+	va_list ap;
 
+	va_start(ap, n);
+	if (separator == NULL)
+		separator = "";
 
-	va_start(ap, format);
-	if  (format)
+	for (i = 0; i < n; i++)
 	{
-		while (format[i])
-		{
-			switch (format[i])
-			{
-				case 'c':
-					printf("%s%c", separator, va_arg(ap, int));
-					break;
-				case 'i':
-					printf("%s%d", separator, va_arg(ap, int));
-					break;
-				case 'f':
-					printf("%s%f", separator, va_arg(ap, int));
-					break;
-				case 's':
-					s = va_arg(ap, char *);
-					if (!s)
-						s = "(nil)";
-					printf("%s%s", separator, s);
-					break;
-				default:
-					i++;
-					continue;
-			}
-			separator = ", "';
-			i++;
-		}
+		str = va_arg(ap, char*);
+		if (str == NULL)
+			str = "(nil)";
+		printf("%s", str);
+		if (i < n - 1)
+			printf("%s", separator);
 	}
-	putstr("\n");
+	printf("\n");
 	va_end(ap);
-}
-int main(void)
-{
-    print_all("ceis", 'B', 3, "stSchool");
-    return (0);
 }
