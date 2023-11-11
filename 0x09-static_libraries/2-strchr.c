@@ -1,18 +1,24 @@
 #include "main.h"
+
 /**
- * _strchr - Entry point
- * @s: input
- * @c: input
- * Return: Always 0 (Success)
+ * _strchr - a function
+ * @s:  variable
+ * @c: variable
+ * Return: return s or NULL
  */
+
 char *_strchr(char *s, char c)
 {
-	int i = 0;
+	unsigned int i = 0;
+	unsigned int size = 0;
 
-	for (; s[i] >= '\0'; i++)
+	while (s[size])
+		size++;
+	while (i <= size)
 	{
 		if (s[i] == c)
 			return (&s[i]);
+		i++;
 	}
-	return (0);
+	return (NULL);
 }

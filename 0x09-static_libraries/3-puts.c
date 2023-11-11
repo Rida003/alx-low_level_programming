@@ -1,16 +1,18 @@
 #include "main.h"
-
+#include <unistd.h>
 /**
- * _puts - prints a string
- * @str: the string
- *
- * Return: the length of the string
+ *_puts -  a string
+ *@str: variable
+ *Return: 0
  */
 void _puts(char *str)
 {
-	while (*str != '\0')
+	int i = 0;
+
+	while (str[i])
 	{
-		_putchar(*str++);
+		write(1, &str[i], 1);
+		i++;
 	}
 	_putchar('\n');
 }

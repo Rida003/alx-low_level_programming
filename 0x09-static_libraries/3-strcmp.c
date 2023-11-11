@@ -1,26 +1,20 @@
 #include "main.h"
+
 /**
- * _strcmp - compare 2 string
- * @s1:string
- * @s2:strmp
- * Return:int
- * Bwave/ Bright
+ * _strcmp - a function that print n elem of array
+ * @s1: pointer variable
+ * @s2: variable
+ * Return: void return nothing
  */
+
 int _strcmp(char *s1, char *s2)
 {
-	while (((*s1 != '\0') && (*s2 != '\0')) && (*s1 == *s2))
+	while (*s1 == *s2)
 	{
+		if (*s1 == '\0')
+			return (0);
 		s1++;
 		s2++;
 	}
-
-	if (*s1 == *s2)
-	{
-		return (0);
-	}
-
-	else
-	{
-		return (*s1 - *s2);
-	}
+	return (*s1 - *s2);
 }
