@@ -1,40 +1,28 @@
 #include "main.h"
-
 /**
- * _strspn - function  calculates  the  length (in bytes) of the initial
- * segment of s which consists entirely of bytes in accept.
- * @s: string to search in.
- * @accept: bytes in which to search for.
- *
- * Return: the number (U_INT) of bytes matching accept.
+ * _strspn - Entry point
+ * @s: input
+ * @accept: input
+ * Return: Always 0 (Success)
  */
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int i, z, count, checker;
+	unsigned int n = 0;
+	int r;
 
-	i = 0;
-	z = 0;
-	checker = 0;
-	count = 0;
-	while (s[i] != '\0')
+	while (*s)
 	{
-		z = 0;
-		checker = 0;
-		while (accept[z] != '\0')
+		for (r = 0; accept[r]; r++)
 		{
-			if (accept[z] == s[i])
+			if (*s == accept[r])
 			{
-				count++;
-				checker = 1;
-			/* Break to early increase efficiency */
+				n++;
 				break;
 			}
-			z++;
+			else if (accept[r + 1] == '\0')
+				return (n);
 		}
-
-		if (checker == 0)
-			return (count);
-		i++;
+		s++;
 	}
-	return (count);
+	return (n);
 }

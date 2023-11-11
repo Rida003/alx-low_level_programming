@@ -1,29 +1,23 @@
 #include "main.h"
-#include <stdio.h>
-
 /**
- * _strpbrk - function that searches a string for any of a set of bytes.
- * @s: haystack.
- * @accept: needle.
- *
- * Return: pointer to to byte s that matches one of the byes in accept, or NUL
+ * _strpbrk - Entry point
+ * @s: input
+ * @accept: input
+ * Return: Always 0 (Success)
  */
 char *_strpbrk(char *s, char *accept)
 {
-	unsigned int i, z;
+		int k;
 
-	i = 0;
-	z = 0;
-	while (s[i] != '\0')
-	{
-		z = 0;
-		while (accept[z] != '\0')
+		while (*s)
 		{
-			if (s[i] == accept[z])
-				return ((s + i));
-			z++;
+			for (k = 0; accept[k]; k++)
+			{
+			if (*s == accept[k])
+			return (s);
+			}
+		s++;
 		}
-		i++;
-	}
-	return (NULL);
+
+	return ('\0');
 }
