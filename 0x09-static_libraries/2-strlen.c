@@ -1,19 +1,16 @@
 #include "main.h"
-
 /**
- *_strlen - lenght of a string
- *@s: variable
- *Return: i
+ * _strlen - return the length of a string
+ * Owned By Bwave
+ * @str: char to check
+ * Description: this will return the length of a string
+ * Return: 0 is success
  */
-int _strlen(char *s)
+int _strlen(char *str)
 {
-	int i = 0;
+	int a = 0;
 
-	if (!s)
-	return (0);
-	while (s[i])
-	{
-		i++;
-	}
-	return (i);
+	for (; *str++;)
+		a++;
+	return (a);
 }

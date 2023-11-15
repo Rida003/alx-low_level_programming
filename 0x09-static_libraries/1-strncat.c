@@ -1,25 +1,25 @@
 #include "main.h"
 
 /**
- * _strncat - a function that print n elem of array
- * @dest: pointer variable
- * @src: variable
- * @n: variable
- * Return: void return nothing
+ * _strncat - concatenates two strings
+ *
+ * @src: The source of strings
+ * @dest: The destination of the string
+ * @n: The length of int
+ *
+ * Return: pointer to the resulting string dest
  */
-
 char *_strncat(char *dest, char *src, int n)
 {
+	int i, j;
 
-	int i = 0;
-	int j = 0;
-
-	while (dest[i])
-		i++;
-	while (src[j] && j < n)
+	for (i = 0; dest[i] != '\0'; i++)
+	{
+		continue;
+	}
+	for (j = 0; src[j] != '\0' && j < n; j++)
 	{
 		dest[i + j] = src[j];
-		j++;
 	}
 	dest[i + j] = '\0';
 	return (dest);

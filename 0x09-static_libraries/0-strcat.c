@@ -1,26 +1,26 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
- * _strcat - a function that print n elem of array
- * @dest: pointer variable
- * @src: variable
- * Return: void return nothing
+ * _strcat - concat 2 string
+ * @dest:char
+ * @src:char
+ * Return:char
  */
 char *_strcat(char *dest, char *src)
 {
+	char *s = dest;
 
-	int i = 0;
-	int j = 0;
+	while (*dest != '\0')
+	{
+		dest++;
+	}
 
-	while (dest[i])
+	while (*src != '\0')
 	{
-		i++;
+		*dest = *src;
+		dest++;
+		src++;
 	}
-	while (src[j])
-	{
-		dest[i + j] = src[j];
-		j++;
-	}
-	dest[i + j] = '\0';
-	return (dest);
+	*dest = '\0';
+	return (s);
 }
