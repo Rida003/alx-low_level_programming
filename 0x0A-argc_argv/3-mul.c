@@ -2,25 +2,26 @@
 #include <stdlib.h>
 
 /**
- * main - multiplies two numbers
- * @argc: counts the arguments.
- * @argv: string array for the arguments entered
+ * main - multiplies two numbers.
+ * @argc: argument count
+ * @argv: arguments
  *
- * Return: 0 (Sucess) else 1 (Failure).
-*/
-int main(int argc, char *argv[])
-{
-	int i, sum = 1;
+ * Return: 0
+ */
 
-	/*one for app name and two for the int values */
-	if (argc != 3)
+int main(int argc, char **argv)
+{
+	int a, b;
+
+	if (argc < 3)
 	{
 		printf("Error\n");
 		return (1);
 	}
-	for (i = 1; i < argc; i++)
-		sum *= atoi(argv[i]);
-	printf("%d\n", sum);
+
+	a = atoi(argv[1]);
+	b = atoi(argv[2]);
+	printf("%d\n", a * b);
+
 	return (0);
 }
-

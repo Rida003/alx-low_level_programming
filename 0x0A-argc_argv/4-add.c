@@ -1,38 +1,58 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <string.h>
 
 /**
- * main - add positive numbers.
- * @argc: count arguments passed in argv
- * @argv: String that holds the passed Arguments.
+ * check_num - check - string there are digit
+ * @str: array str
  *
- * Return: 0 (Sucess) else 1 (Failure).
-*/
+ * Return: Always 0 (Success)
+ */
+
+int check_num(char *str)
+{
+	unsigned int c;
+
+	c = 0;
+	while (c < strlen(str))
+	{
+		if (!isdigit(str[c]))
+			return (0);
+		c++;
+	}
+	return (1);
+}
+
+/**
+ * main - Print the name of the program
+ * @argc: Count arguments
+ * @argv: Arguments
+ *
+ * Return: Always 0 (Success)
+ */
+
 int main(int argc, char *argv[])
 {
-	int i, c, sum = 0;
+	int c;
+	int str_to_int;
+	int sum = 0;
 
-	if (argc < 2)
+	c = 1;
+	while (c < argc)
 	{
-		printf("0\n");
-		return (0);
-	}
-
-	for (i = 1; i < argc; i++)
-	{
-		for (c = 0; argv[i][c] != '\0'; c++)
+		if (check_num(argv[c]))
 		{
-			if (!isdigit(argv[i][c]))
-			{
-				printf("Error\n");
-				return (1);
-			}
+			str_to_int = atoi(argv[c]);
+			sum += str_to_int;
 		}
-		sum += atoi(argv[i]);
+		else
+		{
+			printf("Error\n");
+			return (1);
+		}
+		c++;
 	}
-
 	printf("%d\n", sum);
 	return (0);
 }
-
