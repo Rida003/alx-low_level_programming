@@ -1,7 +1,7 @@
-#ifndef LIST_H
-#define LIST_H
-
 #include <stddef.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 /**
  * struct dlistint_s - doubly linked list
  * @n: integer
@@ -9,7 +9,7 @@
  * @next: points to the next node
  *
  * Description: doubly linked list node structure
- * 
+ *
  */
 typedef struct dlistint_s
 {
@@ -27,5 +27,3 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index);
 int sum_dlistint(dlistint_t *head);
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n);
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index);
-
-#endif/*LIST_H*/
